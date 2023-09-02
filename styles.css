@@ -8,13 +8,19 @@ body {
 }
 
 .input {
-    width: 200px;
+    width: 150px;
     height: 30px;
     margin: auto;
     margin-top: 5vh;
     border: 2px black solid;
     border-radius: 5px;
     font-size: large;
+}
+
+.msg {
+    display: block;
+    margin: auto;
+    margin-top: 5px;
 }
 
 .dice {
@@ -25,7 +31,7 @@ body {
     border-radius: 10px;
     background-color: brown;
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 30px;
 }
 
 .dot {

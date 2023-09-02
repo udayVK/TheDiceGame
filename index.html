@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="container">
+        <input type="number" class="input" id="noOfDices" oninput="spawnDices()" max="12">
+        <p id="msgElement" class="msg"></p>
         <div id="diceContainer">
             <div class="dice" id="dice"></div>
         </div>
@@ -52,6 +54,20 @@
                 }
             }
             spin()
-            </script>
+            function spawnDices() {
+                var noOfDices = document.querySelector('#noOfDices')
+                var msgElement = document.querySelector('#msgElement')
+                if(noOfDices.value > 12) {
+                    msgElement.innerText = 'Maximum no of dices can be 12'
+                    noOfDices.value = 12
+                } else {
+                    msgElement.innerText = ''
+                }
+
+                var diceContainer = document.querySelector('#diceContainer')
+                console.log(noOfDices)
+            }
+
+        </script>
 </body>
 </html>
