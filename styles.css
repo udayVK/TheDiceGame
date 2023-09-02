@@ -23,6 +23,12 @@ body {
     margin-top: 5px;
 }
 
+#diceContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .dice {
     display: block;
     width: 100px;

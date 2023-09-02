@@ -11,26 +11,36 @@
         <input type="number" class="input" id="noOfDices" oninput="spawnDices()" max="12">
         <p id="msgElement" class="msg"></p>
         <div id="diceContainer">
-            <div class="dice" id="dice"></div>
+            <div class="dice" id="dice0"></div>
         </div>
-        <button class="spinbtn" onclick="spin()">
+        <button class="spinbtn" onclick="spinAllDices()">
             <strong>Spin</strong>
         </button>
         <p class="signature">Made By Vamshi</p>
     </div>
     
     <script>
-        function spin() {
+        var diceContainer = document.querySelector('#diceContainer')
+        var noOfDices = document.querySelector('#noOfDices')
+        var msgElement = document.querySelector('#msgElement')
+
+        // set default noOfDices to 1 and spin that defalut dice
+        noOfDices.value = 1
+        spin(0)
+
+        function spin(nthDice) {
+            console.log('spinning '+nthDice)
             var num = Math.floor(Math.random()*6 + 1)
-            console.log(num)
+            // console.log(num)
             var dot = `<div class="dot"></div>`
-            var dice = document.querySelector('#dice')
-            
+            var dice = document.querySelector(`#dice${nthDice}`)
+            console.log(dice)
             dice.innerHTML=''
             for(let i=0; i<num; i++) {
                 dice.innerHTML+=dot
             }
 
+            // reset the dice element calss to just dice instad of dice with count value
             dice.setAttribute('class','dice')
             switch(num) {
                 case 1:
@@ -53,21 +63,33 @@
                     break;
                 }
             }
-            spin()
+            // spin(0)
+
             function spawnDices() {
-                var noOfDices = document.querySelector('#noOfDices')
-                var msgElement = document.querySelector('#msgElement')
+                let defaultDice = '<div class="dice" id="dice0"></div>'
+                diceContainer.innerHTML = defaultDice
+
                 if(noOfDices.value > 12) {
                     msgElement.innerText = 'Maximum no of dices can be 12'
                     noOfDices.value = 12
                 } else {
                     msgElement.innerText = ''
                 }
+                spin(0)
+                for(let i=1; i<noOfDices.value; i++) {
+                    diceContainer.innerHTML += `<div class="dice" id="dice${i}"></div>`
+                    spin(i)
+                }
 
-                var diceContainer = document.querySelector('#diceContainer')
-                console.log(noOfDices)
             }
-
+            
+            function spinAllDices() {
+                noOfDices.value
+                for(let i=0; i<noOfDices.value; i++) {
+                    spin(i)
+                }
+            }
+            
         </script>
 </body>
 </html>
