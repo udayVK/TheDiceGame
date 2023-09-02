@@ -1,0 +1,140 @@
+body {
+    background-color: grey;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    margin: auto;
+    margin-top: 5vh;
+    border: 2px black solid;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.dice {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: brown;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.spinbtn {
+    height: 30px;
+    width: 150px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+    border: 2px black solid;
+    border-radius: 5px;
+}
+
+.spinbtn:active {
+    border: 2px white solid;
+}
+
+.signature {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    /* color: white; */
+}
+
+.spinbtn:active + .signature {
+    color: white;
+}
+
+/* for one and two */
+.dice.one, .dice.two {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+}
+
+/* for three */
+.three .dot:nth-child(1) {
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.three .dot:nth-child(2) {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.three .dot:nth-child(3) {
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* for four */
+.dice.four {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.four .dot {
+    margin: auto;
+}
+
+/* for five */
+.dice.five {
+    display: grid;
+    grid-template-areas: 
+        'dot1 dot2'
+        'dot3 dot3'
+        'dot4 dot5';
+}
+
+.five .dot:nth-child(1) {
+    grid-area: dot1;
+}
+.five .dot:nth-child(2) {
+    grid-area: dot2;
+}
+.five .dot:nth-child(3) {
+    grid-area: dot3;
+}
+.five .dot:nth-child(4) {
+    grid-area: dot4;
+}
+.five .dot:nth-child(5) {
+    grid-area: dot5;
+}
+
+.five .dot {
+    margin: auto;
+}
+
+/* for six */
+.dice.six {
+    display: grid;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    grid-template-columns: 50% 50%;
+}
+
+.six .dot {
+    margin: auto;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dice Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="diceContainer">
+            <div class="dice" id="dice"></div>
+        </div>
+        <button class="spinbtn" onclick="spin()">
+            <strong>Spin</strong>
+        </button>
+        <p class="signature">Made By Vamshi</p>
+    </div>
+    
+    <script>
+        function spin() {
+            var num = Math.floor(Math.random()*6 + 1)
+            console.log(num)
+            var dot = `<div class="dot"></div>`
+            var dice = document.querySelector('#dice')
+            
+            dice.innerHTML=''
+            for(let i=0; i<num; i++) {
+                dice.innerHTML+=dot
+            }
+
+            dice.setAttribute('class','dice')
+            switch(num) {
+                case 1:
+                    dice.classList.add('one');
+                    break;
+                case 2:
+                    dice.classList.add('two');
+                    break;
+                case 3:
+                    dice.classList.add('three');
+                    break;
+                case 4:
+                    dice.classList.add('four');
+                    break;
+                case 5:
+                    dice.classList.add('five');
+                    break;
+                case 6:
+                    dice.classList.add('six');
+                    break;
+                }
+            }
+            spin()
+            </script>
+</body>
+</html>
